@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Membership;
+use App\Models\Payment;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +20,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(PlansSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(MembershipSeeder::class);
+        $this->call(PaymentSeeder::class);
         \App\Models\User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin.rental@rental.com',
