@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -46,6 +47,11 @@ Route::group([
 
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
     Route::get('cachew/flush', [DashboardController::class, 'cacheFlush'])->name('cache.flush');
+
+
+    // Customer
+    Route::post('add-customer', [CustomerController::class, 'addCustomer'])->name('add-customer');
+    Route::post('store-customer', [CustomerController::class, 'storeCustomer'])->name('store-customer');
 
 });
 
